@@ -36,15 +36,17 @@ if (people <= 6)
     }
 
     //output total amount of drinks for party
-    var totalcoffees = coffees.Count(s => s == "coffee");
-    var totalwaters = waters.Count(s => s == "water");
-    Console.WriteLine("Okay, so that's " + totalcoffees + " coffees and " + totalwaters + " waters. I'll be right back. Feel free to grab your food!");
+    var totalCoffeesLower = coffees.Count(s => s == "coffee");
+    var totalWatersLower = waters.Count(s => s == "water");
+    var totalCoffeesUpper = coffees.Count(s => s == "Coffee");
+    var totalWatersUpper = waters.Count(s => s == "Water");
+    Console.WriteLine("Okay, so that's " + (totalCoffeesLower + totalCoffeesUpper) + " coffees and " + (totalWatersLower + totalWatersUpper) + " waters. I'll be right back. Feel free to grab your food!");
 
     //caculate bill
     double buffetprice = 9.99;
     double coffeeprice = 2.00;
     Console.WriteLine(" ");
-    Console.WriteLine("Here's your bill! Total price: $" + ((buffetprice * people) + (coffeeprice * totalcoffees)));
+    Console.WriteLine("Here's your bill! Total price: $" + ((buffetprice * people) + (coffeeprice * (totalCoffeesLower + totalCoffeesUpper))));
 }
 else
 {
